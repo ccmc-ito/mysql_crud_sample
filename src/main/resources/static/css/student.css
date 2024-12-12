@@ -12,14 +12,14 @@
     color: #224abe;
 }
 
-.navbar-nav .nav-item .nav-link.text-white:hover {
-    color: #e0ffff !important;
-    font-weight: bold;
-}
-
 .btn-navy {
     color: white;
     background-color: #224abe;
+}
+
+.navbar-nav .nav-item .nav-link.text-white:hover {
+    color: #e0ffff !important;
+    font-weight: bold;
 }
 
 .btn-navy:hover {

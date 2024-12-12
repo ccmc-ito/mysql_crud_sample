@@ -16,18 +16,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "departments")
+@Table(name="departments")
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 30)
+    @NotBlank(message="名前を入力してください。")
+    @Size(max=30, message="名前は30文字以内にしてください。")
     private String name;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy="department")
     private List<Student> students;
 
 }

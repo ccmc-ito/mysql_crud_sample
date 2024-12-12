@@ -3,6 +3,7 @@ package jp.ac.ccmc.crud_sample.controller;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,7 +38,7 @@ public class StudentController {
     }
 
     @PostMapping("/process")
-    public String process(@Validated @ModelAttribute Student student, BindingResult bindingResult) {
+    public String process(@Validated @ModelAttribute @NonNull Student student, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "student/form";
         }
@@ -46,13 +47,13 @@ public class StudentController {
     }
 
     @GetMapping("/edit")
-    public String editStudent(@RequestParam("id") Long id, Model model) {
+    public String editStudent(@RequestParam("id") @NonNull Long id, Model model) {
         model.addAttribute("student", repository.findById(id));
         return "student/form";
     }
 
     @GetMapping("/delete")
-    public String deleteStudent(@RequestParam("id") Long id) {
+    public String deleteStudent(@RequestParam("id") @NonNull Long id) {
         repository.deleteById(id);
         return "redirect:./";
     }
