@@ -15,7 +15,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Department department = new Department();
+        Department department;
+
+        department = new Department();
         department.setName("IT・Web");
         repository.save(department);
 
@@ -23,4 +25,5 @@ public class DataLoader implements CommandLineRunner {
         department.setName("AIプロジェクト");
         repository.save(department);
     }
+
 }

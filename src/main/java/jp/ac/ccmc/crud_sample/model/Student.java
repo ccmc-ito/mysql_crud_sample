@@ -18,18 +18,20 @@ import lombok.Setter;
 @Entity
 @Table(name="students")
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message="名前を入力してください。")
-    @Size(max=30, message="名前は30文字以内にしてください。")
+    @NotBlank(message = "名前を入力してください。")
+    @Size(max = 30, message = "名前は30文字以内にしてください。")
     private String name;
 
-    @NotNull(message="年齢を入力してください。")
-    @Min(value=0, message="年齢は0以上の数値にしてください。")
+    @NotNull(message = "年齢を入力してください。")
+    @Min(value = 0, message = "年齢は0以上の数値にしてください。")
     private Integer age;
 
     @ManyToOne
     private Department department;
+
 }
